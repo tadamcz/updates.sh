@@ -18,7 +18,7 @@ list=$(brew outdated --greedy-auto-updates --cask --quiet | grep --invert-match 
 
 if [ -n "${list}" ]
 then
-	brew upgrade $list --greedy-auto-updates --cask --quiet
+	echo $list | xargs brew upgrade --greedy-auto-updates --cask --quiet
 else
 	echo "No casks to upgrade"
 fi
