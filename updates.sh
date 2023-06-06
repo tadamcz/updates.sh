@@ -34,13 +34,14 @@ pueue group remove brew_fetch
 pueue shutdown
 
 # Upgrade formulae and casks
-echo "Upgrading formulae..."
+echo "Upgrading ${#formulae[@]} formulae..."
 brew upgrade --formula --ignore-pinned $formulae
-echo "Upgrading casks..."
+echo "Upgrading ${#casks[@]} casks..."
 brew upgrade --cask --greedy-auto-updates $casks
 
 
 # 2. Poetry
+echo "Updating poetry..."
 poetry self update
 
 # 3. asdf version manager plugins
