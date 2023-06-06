@@ -8,7 +8,7 @@ formulae=($(brew outdated  --quiet --formula))
 # List Homebrew casks
 # Note: It's recommended to set `HOMEBREW_CASK_OPTS=--no-quarantine`, or you will get lots of annoying MacOS prompts
 # next time you open a cask after updating (and casks will silently fail to start on login!)
-casks_no_upgrade="alfred"  # Can use regex "or" to list multiple, e.g. "alfred|google-cloud-sdk"
+casks_no_upgrade="alfred|docker"  # Can use regex "or" to list multiple, e.g. "alfred|google-cloud-sdk"
 echo "Listing outdated casks (except ${casks_no_upgrade})..."
 casks=($(brew outdated --quiet --greedy-auto-updates --cask | grep --invert-match -E $casks_no_upgrade))
 
