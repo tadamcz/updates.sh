@@ -39,14 +39,9 @@ brew upgrade --formula --ignore-pinned $formulae
 echo "Upgrading ${#casks[@]} casks..."
 brew upgrade --cask --greedy-auto-updates $casks
 
-
-# 2. Poetry
-echo "Updating poetry..."
-poetry self update
-
-# 3. asdf version manager plugins
+# 2. asdf version manager plugins
 echo "Updating asdf plugins..."
 asdf plugin-update --all
 
-# 4. Mac App Store
+# 3. Mac App Store
 mas upgrade
