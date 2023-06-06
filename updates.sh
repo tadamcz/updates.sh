@@ -1,7 +1,5 @@
 #!/bin/zsh
 
-sudo -v  # ask for password once up front (or cache it)
-
 # 1. Homebrew
 # List Homebrew formulae
 echo "Listing outdated formulae..."
@@ -36,7 +34,6 @@ pueue group remove brew_fetch
 pueue shutdown
 
 # Upgrade formulae and casks
-sudo -v # re-cache sudo credentials, or ask for password
 echo "Upgrading formulae..."
 brew upgrade --formula --ignore-pinned $formulae
 echo "Upgrading casks..."
