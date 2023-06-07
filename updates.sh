@@ -34,10 +34,18 @@ pueue group remove brew_fetch
 pueue shutdown
 
 # Upgrade formulae and casks
-echo "Upgrading ${#formulae[@]} formulae..."
-brew upgrade --formula --ignore-pinned $formulae
-echo "Upgrading ${#casks[@]} casks..."
-brew upgrade --cask --greedy-auto-updates $casks
+if [ ${#formulae[@]} -eq 0 ]; then
+    echo "No formulae to upgrade."
+else
+    echo "Upgrading ${#formulae[@]} formulae..."
+    brew upgrade --formula --ignore-pinned $formulae
+fi
+if [ ${#casks[@]} -eq 0 ]; then
+    echo "No casks to upgrade."
+else
+    echo "Upgrading ${#casks[@]} casks..."
+    brew upgrade --cask -greedy-auto-updates --ignore-pinned $casks
+fi
 
 # 2. asdf version manager plugins
 echo "Updating asdf plugins..."
