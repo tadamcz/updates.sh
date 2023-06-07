@@ -44,7 +44,7 @@ if [ ${#casks[@]} -eq 0 ]; then
     echo "No casks to upgrade."
 else
     echo "Upgrading ${#casks[@]} casks..."
-    brew upgrade --cask -greedy-auto-updates --ignore-pinned $casks
+    brew upgrade --cask --greedy-auto-updates --ignore-pinned $casks
 fi
 
 # 2. asdf version manager plugins
