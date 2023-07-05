@@ -1,6 +1,7 @@
 #!/bin/zsh
 
-# 1. Homebrew
+# Homebrew
+# --------
 # List Homebrew formulae
 echo "Listing outdated formulae..."
 formulae=($(brew outdated  --quiet --formula))
@@ -47,9 +48,15 @@ else
     brew upgrade --cask --greedy-auto-updates $casks
 fi
 
-# 2. asdf version manager plugins
+# asdf version manager plugins
+# ----------------------------
 echo "Updating asdf plugins..."
 asdf plugin-update --all
 
-# 3. Mac App Store
+# Oh My Zsh
+# ---------
+$ZSH/tools/upgrade.sh
+
+# Mac App Store
+# -------------
 mas upgrade
